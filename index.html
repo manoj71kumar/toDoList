@@ -3,19 +3,26 @@
   <head>
     <title>App To Do List</title>
     <meta content="">
+<!--     STYLES -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" media="all" type="text/css" href="css/grid.css" />
     <link rel="stylesheet" media="all" type="text/css" href="css/app.css" />
+    
   </head>
   <body id="app" x-ng-controller="appController" x-ng-init="dataList" >
     <div class="container">
     
+<!--     HEAD OF PAGE  -->
+
         <div class="row">
             <div class="col-md-12">
                 <h2 class="text-center head"><span class="fa fa-plus"></span> Add List to Add</h2>
             </div>
         </div>
-        
+ 
+<!--  INPUT TEXT FOR ADD NEW LIST DATA -->
+ 
         <div class="row">
             <div class="col-md-12">
                 <div class="input-box">
@@ -29,6 +36,8 @@
                 </div>
             </div>
         </div>
+        
+<!--         SHOW ALL DATA OF LIST -->
     
         <div class="row">
             <div class="col-md-12">
@@ -45,10 +54,14 @@
             </div>
         </div>
         
+<!--         FOOTER REMAINING DATA COUNT -->
+        
         <div class="col-md-12" style="background:#fafafa;">
                 <p class="datalist-count"  style="padding:10px;">{{rest()}} of {{datalist.length}} left<p>
         </div>
     </div>
+    
+<!--     SCRIPTS -->
   
     <script type="text/javascript" charset="utf8" src="js/jquery.min.js"></script>  
     <script type="text/javascript" charset="utf8" src="js/angular.min.js"></script>
