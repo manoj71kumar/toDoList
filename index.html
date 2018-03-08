@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html x-ng-app="App">
+  <head>
+    <title>App To Do List</title>
+    <meta content="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" media="all" type="text/css" href="css/grid.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="css/app.css" />
+  </head>
+  <body id="app" x-ng-controller="appController" x-ng-init="dataList" >
+    <div class="container">
+    
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center head"><span class="fa fa-plus"></span> Add List to Add</h2>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-box">
+                    <input id="new-todo" type="text" ng-model="addtext"  size="30" placeholder="Add List for To do"/>
+                    <button ng-click="addNewList()" class="btn btn-blue"><span class="fa fa-plus"></span> Add New Data</button>
+                    <div ng-show="isData()" style="padding-left:20px;padding-top:10px;display: inline;">
+                         <input id="toggle-all" type="checkbox" ng-model="markAll" ng-click="MarkCompleteAll()"/>
+                         <label for="toggle-all">Mark All</label>
+                         <a class="delete btn btn-red btn-sm" ng-click="empty()" style="margin-left:20px;" ng-show="isShow()"><span class="fa fa-trash"></span> Delete <span >{{(datalist.length - rest())}} {{item()}}</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-12">
+                <div id="main" style="display: block;">
+                    <ul id="data-list"  style="padding-left:20px;">
+                        <li ng-repeat="list in datalist">
+                            <div class="view">
+                                <input type="checkbox" ng-model="list.done"/>
+                                <span class="done-{{list.done}}" >{{list.text}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-12" style="background:#fafafa;">
+                <p class="datalist-count"  style="padding:10px;">{{rest()}} of {{datalist.length}} left<p>
+        </div>
+    </div>
+  
+    <script type="text/javascript" charset="utf8" src="js/jquery.min.js"></script>  
+    <script type="text/javascript" charset="utf8" src="js/angular.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="js/controllers/controllers.js"></script>
+    <script type="text/javascript" charset="utf8" src="js/app.js"></script>
+ </body>
+</html>
